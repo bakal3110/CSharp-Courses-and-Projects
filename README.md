@@ -1,12 +1,12 @@
 # Learn C# by Building a Simple RPG
-Repository where I will save my C# learning progress by following course [Learn C# by Building a Simple RPG](https://scottlilly.com/learn-c-by-building-a-simple-rpg-index/).
+Repository where I will save my C# learning progress by following different courses and creating projects. [Learn C# by Building a Simple RPG](https://scottlilly.com/learn-c-by-building-a-simple-rpg-index/).
 
 ## Table of contents
 - [x] Lesson 00.1 – What is in these lessons?
 - [x] Lesson 00.2 – General information about programming in C#
 - [x] Lesson 00.3 – The parts of Visual Studio
-- [ ] Lesson 01.1 – Defining classes and objects for the game
-- [ ] Lesson 02.1 – Installing Visual Studio Community Edition
+- [x] Lesson 01.1 – Defining classes and objects for the game
+- [x] Lesson 02.1 – Installing Visual Studio Community Edition `in-progress`
 - [ ] Lesson 02.2 – Building the solution for the game
 - [ ] Lesson 03.1 – Building the first screen
 - [ ] Lesson 04.1 – Creating the Player class and its properties
