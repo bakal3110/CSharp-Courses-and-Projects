@@ -1,4 +1,4 @@
-# Learn C# by Building a Simple RPG
+# C# learning and projects
 Repository where I will save my C# learning progress by following different courses and creating projects.
 
 ## Games
