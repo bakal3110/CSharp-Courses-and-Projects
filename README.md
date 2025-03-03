@@ -2,7 +2,7 @@
 Repository where I will save my C# learning progress by following course [Learn C# by Building a Simple RPG](https://scottlilly.com/learn-c-by-building-a-simple-rpg-index/).
 
 ## Table of contents
-- [ ] Lesson 00.1 – What is in these lessons?
+- [x] Lesson 00.1 – What is in these lessons?
 - [ ] Lesson 00.2 – General information about programming in C#
 - [ ] Lesson 00.3 – The parts of Visual Studio
 - [ ] Lesson 01.1 – Defining classes and objects for the game
