@@ -3,8 +3,8 @@ Repository where I will save my C# learning progress by following course [Learn 
 
 ## Table of contents
 - [x] Lesson 00.1 – What is in these lessons?
-- [ ] Lesson 00.2 – General information about programming in C#
-- [ ] Lesson 00.3 – The parts of Visual Studio
+- [x] Lesson 00.2 – General information about programming in C#
+- [x] Lesson 00.3 – The parts of Visual Studio
 - [ ] Lesson 01.1 – Defining classes and objects for the game
 - [ ] Lesson 02.1 – Installing Visual Studio Community Edition
 - [ ] Lesson 02.2 – Building the solution for the game
