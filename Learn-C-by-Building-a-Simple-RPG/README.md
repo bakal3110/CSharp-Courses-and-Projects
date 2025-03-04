@@ -9,14 +9,14 @@ Repository where I will save my C# learning progress by following [Learn C# by B
 - [x] Lesson 02.1 – Installing Visual Studio Community Edition
 - [x] Lesson 02.2 – Building the solution for the game
 - [x] Lesson 03.1 – Building the first screen
-- [ ] Lesson 04.1 – Creating the Player class and its properties `in-progress`
-- [ ] Lesson 05.1 – Creating objects from classes
-- [ ] Lesson 06.1 – Creating the remaining classes
-- [ ] Lesson 07.1 – Inheritance and base classes
-- [ ] Lesson 08.1 – Setting properties with a class constructor
-- [ ] Lesson 08.2 – Using class constructors with derived classes
-- [ ] Lesson 09.1 – Using your classes as datatypes
-- [ ] Lesson 10.1 – Creating collections of objects
+- [x] Lesson 04.1 – Creating the Player class and its properties 
+- [x] Lesson 05.1 – Creating objects from classes
+- [x] Lesson 06.1 – Creating the remaining classes
+- [x] Lesson 07.1 – Inheritance and base classes
+- [x] Lesson 08.1 – Setting properties with a class constructor
+- [x] Lesson 08.2 – Using class constructors with derived classes
+- [x] Lesson 09.1 – Using your classes as datatypes
+- [x] Lesson 10.1 – Creating collections of objects
 - [ ] Lesson 11.1 – Using a static class
 - [ ] Lesson 12.1 – Add the remaining UI controls
 - [ ] Lesson 13.1 – Functions, procedures, and methods
