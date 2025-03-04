@@ -6,9 +6,9 @@ Repository where I will save my C# learning progress by following [Learn C# by B
 - [x] Lesson 00.2 – General information about programming in C#
 - [x] Lesson 00.3 – The parts of Visual Studio
 - [x] Lesson 01.1 – Defining classes and objects for the game
-- [x] Lesson 02.1 – Installing Visual Studio Community Edition `in-progress`
-- [ ] Lesson 02.2 – Building the solution for the game
-- [ ] Lesson 03.1 – Building the first screen
+- [x] Lesson 02.1 – Installing Visual Studio Community Edition
+- [x] Lesson 02.2 – Building the solution for the game
+- [ ] Lesson 03.1 – Building the first screen `in-progress`
 - [ ] Lesson 04.1 – Creating the Player class and its properties
 - [ ] Lesson 05.1 – Creating objects from classes
 - [ ] Lesson 06.1 – Creating the remaining classes
