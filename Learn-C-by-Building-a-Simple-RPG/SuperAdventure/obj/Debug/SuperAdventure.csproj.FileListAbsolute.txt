@@ -10,3 +10,4 @@ C:\Users\Jacek\source\repos\SuperAdventure\SuperAdventure\SuperAdventure\obj\Deb
 C:\Users\Jacek\source\repos\SuperAdventure\SuperAdventure\SuperAdventure\obj\Debug\SuperAdv.5A2A7CD7.Up2Date
 C:\Users\Jacek\source\repos\SuperAdventure\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.exe
 C:\Users\Jacek\source\repos\SuperAdventure\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.pdb
+C:\Users\Jacek\source\repos\SuperAdventure\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.SuperAdventure.resources
