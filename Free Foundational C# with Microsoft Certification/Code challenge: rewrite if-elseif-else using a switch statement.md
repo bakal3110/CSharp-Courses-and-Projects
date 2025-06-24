@@ -1,0 +1,104 @@
+# Convert to switch statements challenge
+In this challenge, you'll rewrite an if-elseif-else construct as a switch statement. 
+This challenge should help you see the strengths/weaknesses of the switch statement when compared to an if-elseif-else construct. Good luck.
+
+Starting code
+```csharp
+// SKU = Stock Keeping Unit. 
+// SKU value format: <product #>-<2-letter color code>-<size code>
+string sku = "01-MN-L";
+
+string[] product = sku.Split('-');
+
+string type = "";
+string color = "";
+string size = "";
+
+if (product[0] == "01")
+{
+    type = "Sweat shirt";
+} else if (product[0] == "02")
+{
+    type = "T-Shirt";
+} else if (product[0] == "03")
+{
+    type = "Sweat pants";
+}
+else
+{
+    type = "Other";
+}
+
+if (product[1] == "BL")
+{
+    color = "Black";
+} else if (product[1] == "MN")
+{
+    color = "Maroon";
+} else
+{
+    color = "White";
+}
+
+if (product[2] == "S")
+{
+    size = "Small";
+} else if (product[2] == "M")
+{
+    size = "Medium";
+} else if (product[2] == "L")
+{
+    size = "Large";
+} else
+{
+    size = "One Size Fits All";
+}
+
+Console.WriteLine($"Product: {size} {color} {type}")
+```
+Update the code to use a switch statement in place of the if-elseif-else construct.
+
+Verify that your output hasn't changed.
+```
+Product: Large Maroon Sweat shirt
+```
+## Solution
+```csharp
+// SKU = Stock Keeping Unit. 
+// SKU value format: <product #>-<2-letter color code>-<size code>
+string sku = "01-MN-L";
+
+string[] product = sku.Split('-');
+
+string type = "";
+string color = "";
+string size = "";
+
+switch(product[0])
+{
+    case "01":
+    type = "Sweat shirt";
+        break;
+
+    case "02":
+    type = "T-Shirt";
+        break;
+
+    case "03":
+    type = "Sweat pants";
+        break;
+}
+
+switch(product[1])
+{
+    
+}
+
+switch(product[2])
+{
+    
+}
+
+Console.WriteLine($"Product: {size} {color} {type}");
+```
+to be continued
