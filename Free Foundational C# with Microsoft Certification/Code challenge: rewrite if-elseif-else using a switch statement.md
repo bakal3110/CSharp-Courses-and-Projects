@@ -77,28 +77,47 @@ string size = "";
 switch(product[0])
 {
     case "01":
-    type = "Sweat shirt";
+        type = "Sweat shirt";
         break;
 
     case "02":
-    type = "T-Shirt";
+        type = "T-Shirt";
         break;
 
     case "03":
-    type = "Sweat pants";
+        type = "Sweat pants";
         break;
 }
 
-switch(product[1])
+switch (product[1])
 {
-    
+    case "BL":
+        color = "Black";
+        break;
+
+    case "MN":
+        color = "Maroon";
+        break;
+
+    default:
+        color = "White";
+        break;
 }
 
-switch(product[2])
+switch (product[2])
 {
-    
+    case "S":
+        size = "Small";
+        break;
+
+    case "M":
+        size = "Medium";
+        break;
+
+    case "L":
+        size = "Large";
+        break;
 }
 
 Console.WriteLine($"Product: {size} {color} {type}");
 ```
-to be continued
