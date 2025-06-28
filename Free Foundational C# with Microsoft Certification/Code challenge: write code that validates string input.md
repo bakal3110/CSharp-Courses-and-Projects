@@ -20,15 +20,7 @@ Console.WriteLine("Enter your role name (Administrator, Manager, or User):");
 do
 {
 	readResult = Console.ReadLine().Trim().ToLower();
-	if (readResult == "administrator")
-	{
-		validEntry = true;
-		continue;
-	} else if (readResult == "manager")
-	{
-		validEntry = true;
-		continue;
-	} else if (readResult == "user")
+	if((readResult == "administrator") || (readResult == "manager") || (readResult == "user"))
 	{
 		validEntry = true;
 		continue;
