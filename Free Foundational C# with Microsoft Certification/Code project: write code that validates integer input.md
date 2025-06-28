@@ -27,18 +27,18 @@ do
     if (readResult != null)
     {
         if (!(validNumber = int.TryParse(readResult, out numericValue)))
+	{
+		Console.WriteLine("Sorry, you entered an invalid number, please try again.");
+	}
+	else
+	{
+		if (numericValue <= 5 || numericValue >= 10)
 		{
-			Console.WriteLine("Sorry, you entered an invalid number, please try again.");
+			Console.WriteLine($"You entered {numericValue}. Please enter a number between 5 and 10.");
+			continue;
 		}
-		else
-		{
-			if (numericValue <= 5 || numericValue >= 10)
-			{
-				Console.WriteLine($"You entered {numericValue}. Please enter a number between 5 and 10.");
-				continue;
-			}
-			validEntry = true;
-		}
+		validEntry = true;
+	}
     }
 } while (validEntry == false);
 
