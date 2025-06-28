@@ -32,7 +32,7 @@ do
 		}
 		else
 		{
-			if (numericValue < 5 || numericValue > 10)
+			if (numericValue <= 5 || numericValue >= 10)
 			{
 				Console.WriteLine($"You entered {numericValue}. Please enter a number between 5 and 10.");
 				continue;
