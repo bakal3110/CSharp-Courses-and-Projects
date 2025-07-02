@@ -119,7 +119,7 @@ do
 				{
 					Console.Write(i+1);
 					Console.WriteLine(".");
-					for (int j = 0; j < 5; j++)
+					for (int j = 0; j < 6; j++)
 					{
 						Console.WriteLine($"\t{ourAnimals[i,j]}");
 					}
