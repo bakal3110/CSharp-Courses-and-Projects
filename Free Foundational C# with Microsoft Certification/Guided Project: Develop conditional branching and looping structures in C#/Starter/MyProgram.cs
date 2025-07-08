@@ -352,42 +352,110 @@ do
             Console.WriteLine();
             Console.WriteLine("Age and physical description fields are complete for all of our friends.");
             Console.WriteLine();
+            Console.WriteLine("Press the Enter key to continue.");
 			readResult = Console.ReadLine();
 			
             break;
 
-        case "4":
+       case "4":
             // 4. Ensure animal nicknames and personality descriptions are complete
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
+
+            // main loop for checking each pet
+            for (int i = 0; i < maxPets; i++)
+            {
+                bool validEntry = false;
+				
+				if (ourAnimals[i, 0] != "ID #: ")
+				{
+					// checking for empty Nickname entry
+					if (ourAnimals[i, 3] == "Nickname: ")
+					{
+						Console.WriteLine("Add Nickname for the pet");
+						Console.WriteLine(ourAnimals[i,0]);
+						readResult = Console.ReadLine();
+						// checking if entry is valid
+						do
+						{
+							if (readResult != null)
+							{
+								if (readResult != "")
+								{
+									ourAnimals[i,3] = "Nickname: " + readResult.TrimStart(' ').ToLower();
+									validEntry = true;
+								}
+							}
+						} while (validEntry == false);
+					}
+
+					validEntry = false;
+
+					// checking for empty Personality entry
+					if (ourAnimals[i, 5] == "Personality: ")
+					{
+						Console.WriteLine("Add Personality description for the pet");
+						Console.WriteLine(ourAnimals[i,5]);
+						readResult = Console.ReadLine();
+						// checking if entry is valid
+						do
+						{
+							if (readResult != null)
+							{
+								if (readResult != "")
+								{
+									ourAnimals[i,5] = "Personality: " + readResult.TrimStart(' ').ToLower();
+									validEntry = true;
+								}
+							}
+						} while (validEntry == false);
+					}
+				}
+            }
+
+            // Summary message after all entries are complete
+            Console.WriteLine();
+            Console.WriteLine("Nickname and personality description fields are complete for all of our friends.");
+            Console.WriteLine();
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
 
         case "5":
             // 5. Edit an animal’s age
-            Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
-            Console.WriteLine("Press the Enter key to continue.");
+            //Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
+
+
+
+            Console.WriteLine("End of the section. Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
 
         case "6":
             // 6. Edit an animal’s personality description
-            Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
-            Console.WriteLine("Press the Enter key to continue.");
+            //Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
+
+
+
+            Console.WriteLine("End of the section. Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
 
         case "7":
             // 7. Display all cats with a specified characteristic
-            Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
-            Console.WriteLine("Press the Enter key to continue.");
+            //Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
+
+
+
+            Console.WriteLine("End of the section. Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
 
         case "8":
             // 7. Display all dogs with a specified characteristic
-            Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
-            Console.WriteLine("Press the Enter key to continue.");
+            //Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
+
+
+
+            Console.WriteLine("End of the section. Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
 
