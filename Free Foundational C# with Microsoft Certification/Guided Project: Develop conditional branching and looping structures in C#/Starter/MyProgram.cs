@@ -349,6 +349,11 @@ do
                 }
             }
 
+            Console.WriteLine();
+            Console.WriteLine("Age and physical description fields are complete for all of our friends.");
+            Console.WriteLine();
+			readResult = Console.ReadLine();
+			
             break;
 
         case "4":
