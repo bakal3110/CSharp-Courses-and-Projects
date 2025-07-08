@@ -357,30 +357,35 @@ do
             break;
 
         case "4":
+            // 4. Ensure animal nicknames and personality descriptions are complete
             Console.WriteLine("Challenge Project - please check back soon to see progress.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
 
         case "5":
+            // 5. Edit an animal’s age
             Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
 
         case "6":
+            // 6. Edit an animal’s personality description
             Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
 
         case "7":
+            // 7. Display all cats with a specified characteristic
             Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
 
         case "8":
+            // 7. Display all dogs with a specified characteristic
             Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
