@@ -42,7 +42,7 @@ for (int i = 0; i < maxPets; i++)
         case 2:
             animalSpecies = "cat";
             animalID = "c3";
-            animalAge = "1";
+            animalAge = "?";
             animalPhysicalDescription = "small white female weighing about 8 pounds. litter box trained.";
             animalPersonalityDescription = "friendly";
             animalNickname = "Puss";
@@ -275,9 +275,80 @@ do
 			break;
 
         case "3":
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
-            Console.WriteLine("Press the Enter key to continue.");
-            readResult = Console.ReadLine();
+			// Ensure animal ages and physical descriptions are complete
+			
+            //Console.WriteLine("Challenge Project - please check back soon to see progress.");
+            //Console.WriteLine("Press the Enter key to continue.");
+            //readResult = Console.ReadLine();
+
+            for (int i = 0; i < maxPets; i++)
+            {
+				int petAge = 0;
+				bool validEntry = false;
+				
+                if (ourAnimals[i,0] != "ID #: ")
+                {
+					// checking if age entry is incomplete
+					if ( !(int.TryParse(ourAnimals[i,2].Substring(5), out petAge)) )
+					{
+						// display animal ID and age
+						Console.WriteLine();
+						Console.WriteLine(ourAnimals[i,0]);
+						Console.WriteLine(ourAnimals[i,2]);
+						
+						// prompt user to update age entry
+						Console.WriteLine();
+						Console.WriteLine("Enter pet's age or \"?\" if unknown.");
+						do
+						{						
+							readResult = Console.ReadLine();
+							
+							// checking if entry is not empty
+							if (readResult != null)
+							{
+								// check if entry is a number
+								validEntry = int.TryParse(readResult, out petAge);
+							}
+						} while (readResult != "?" && validEntry == false);
+						
+						ourAnimals[i,2] = "Age: " + readResult;
+						
+						Console.WriteLine();
+						Console.WriteLine("Updated:\n" + ourAnimals[i,2]);
+						
+						Console.WriteLine("Press Enter to continue...");
+                    	readResult = Console.ReadLine();
+					}
+					
+					// check for missing physical description
+
+					// a reminder line of code to locate a char
+					// periodLocation = myString.IndexOf('.');
+					
+					if (ourAnimals[i,4] == "Physical description: ")
+					{
+                        validEntry = false;
+
+                        Console.WriteLine();
+						Console.WriteLine("Enter a physical description of the pet (size, color, gender, weight, housebroken)");
+
+                        do
+                        {
+                            readResult = Console.ReadLine();
+
+                            if (readResult != null)
+                            {
+                                if (readResult != "")
+                                {
+                                    ourAnimals[i,4] = "Physical description: " + readResult.TrimStart(' ').ToLower();
+                                    validEntry = true;
+                                }
+                            }
+                        } while (validEntry == false);
+					}
+                }
+            }
+
             break;
 
         case "4":
@@ -314,3 +385,4 @@ do
             break;
     }
 } while (menuSelection != "exit");
+
