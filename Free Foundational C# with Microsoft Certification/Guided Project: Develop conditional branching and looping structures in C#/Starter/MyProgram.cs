@@ -14,8 +14,9 @@ int numAnimalNickname = 3;
 int numAnimalPhysicalDescription = 4;
 int numAnimalPersonalityDescription = 5;
 
-// variable supporting modifying data 
+// variables supporting modifying data 
 int animalToModify = 0;
+string stringToDeconstruct = "";
 
 
 // variables that support data entry
@@ -433,8 +434,7 @@ do
 
         case "5":
             // 5. Edit an animal’s age
-            //Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
-
+            
             bool foundAnimal = false;
             bool validEntry = false;
             
@@ -521,8 +521,60 @@ do
 
         case "6":
             // 6. Edit an animal’s personality description
-            //Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
+            
+            foundAnimal = false;
+            validEntry = false;
+            // find all registered animals
+             for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i,numAnimalID] != "ID #: ")
+                {
+                    foundAnimal = true;
+                    // display all registered animals' IDs and personalities
+                    Console.WriteLine($"\n{ourAnimals[i,numAnimalID]}");
+					Console.WriteLine(ourAnimals[i,numAnimalPersonalityDescription]);
+                }
+            }
 
+            if (!foundAnimal)
+            {
+                Console.WriteLine("No animals.");
+            }
+            else
+            {
+				string comparison = "";
+                // ask user to choose which animal to modify
+                Console.WriteLine("\nEnter ID of an animal to modify its personality, confirm with Enter:");
+                do
+                {
+                    readResult = Console.ReadLine();
+					comparison = readResult.ToLower();
+                    if (readResult != null)
+                    {
+                        for (int i = 0; i < maxPets; i++)
+                        {
+                            // if input ID matches an ID of any animal, save that ID into variable
+                            if (comparison == ourAnimals[i,numAnimalID].Substring(6))
+                            {
+                                animalToModify = i;
+                                validEntry = true;
+                                break;
+                            }
+                        }
+                    }
+                } while (validEntry == false);
+				
+				Console.WriteLine("\nEnter new personality description, confirm with Enter:");
+				do
+				{
+					readResult = Console.ReadLine();
+					if (readResult != null)
+						ourAnimals[animalToModify, numAnimalPersonalityDescription] = "Personality: " + readResult; 
+				} while (readResult != null);
+
+                Console.WriteLine("\nUpdated " + readResult);
+                Console.WriteLine();
+            }
 
 
             Console.WriteLine("End of the section. Press the Enter key to continue.");
@@ -531,8 +583,41 @@ do
 
         case "7":
             // 7. Display all cats with a specified characteristic
-            //Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
 
+            bool foundCat = false;
+
+            // find all cats, then create an array of cats
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i,numAnimalID].Substring(6, 1) == "c")
+                {
+                    foundCat = true;
+                }
+            }
+            if (!foundCat)
+            {
+                Console.WriteLine("No cats.");
+            }
+            else
+            {
+                // ask user for characteristic, for now only one, eg. "small"
+                Console.WriteLine("\nEnter one characteristic you are looking for (eg. \"small\"), confirm with Enter:");
+                do
+                {
+                    readResult = Console.ReadLine();
+                } while (readResult == null);
+                
+                // deconstruct cats' description into array of words, then compare them with input
+                readResult = readResult.ToLower()
+                for (int i = 0; i < maxPets; i++)
+                {
+                    if (ourAnimals[i,numAnimalID].Substring(6, 1) == "c")
+                    {
+                        stringToDeconstruct = ourAnimals[i, numAnimalPersonalityDescription];
+                        string[] words = stringToDeconstruct.Split(' ', ',', '.');
+                    }
+                }
+            }
 
 
             Console.WriteLine("End of the section. Press the Enter key to continue.");
@@ -541,9 +626,25 @@ do
 
         case "8":
             // 7. Display all dogs with a specified characteristic
-            //Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
 
-
+            bool foundDog = false;
+            // find all registered animals, then cats among them
+            foundAnimal = false;
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i,numAnimalID].Substring(6, 1) == "d")
+                {
+                    foundDog = true;
+                }
+            }
+            if (!foundDog)
+            {
+                Console.WriteLine("No dogs.");
+            }
+            else
+            {
+                // ask user for characteristic, for now only one, eg. "small"
+            }
 
             Console.WriteLine("End of the section. Press the Enter key to continue.");
             readResult = Console.ReadLine();
