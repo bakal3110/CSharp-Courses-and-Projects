@@ -585,21 +585,33 @@ do
             // 7. Display all cats with a specified characteristic
 
             bool foundCat = false;
-
-            // find all cats, then create an array of cats
+			int[] catArray = new int[8] {-1, -1 , -1, -1, -1, -1, -1, -1};
+			int iCatArray = 0;
+			
+			// find all registered animals and cats within them, then make a cat array
             for (int i = 0; i < maxPets; i++)
             {
-                if (ourAnimals[i,numAnimalID].Substring(6, 1) == "c")
-                {
-                    foundCat = true;
-                }
+				if (ourAnimals[i,numAnimalID] != "ID #: ")
+				{
+					if (ourAnimals[i,numAnimalID].Substring(6, 1) == "c")
+					{
+						catArray[iCatArray] = i;
+						foundCat = true;
+						iCatArray++;
+					}
+				}
             }
+			
             if (!foundCat)
             {
                 Console.WriteLine("No cats.");
             }
             else
             {
+				bool foundMatch = false;
+				int[] matchingCats = new int[8] {-1, -1 , -1, -1, -1, -1, -1, -1};
+				int iMatchingCats = 0;
+				
                 // ask user for characteristic, for now only one, eg. "small"
                 Console.WriteLine("\nEnter one characteristic you are looking for (eg. \"small\"), confirm with Enter:");
                 do
@@ -608,15 +620,43 @@ do
                 } while (readResult == null);
                 
                 // deconstruct cats' description into array of words, then compare them with input
-                readResult = readResult.ToLower()
-                for (int i = 0; i < maxPets; i++)
-                {
-                    if (ourAnimals[i,numAnimalID].Substring(6, 1) == "c")
-                    {
-                        stringToDeconstruct = ourAnimals[i, numAnimalPersonalityDescription];
-                        string[] words = stringToDeconstruct.Split(' ', ',', '.');
-                    }
-                }
+                readResult = readResult.ToLower();
+                foreach (int cat in catArray)
+				{
+					if (cat >= 0)
+					{
+						// deconstruct each cat's description into array of words
+						int skipPhysicalDescription = 22;
+						stringToDeconstruct = ourAnimals[cat, numAnimalPhysicalDescription];
+						char[] separators = new char[] { ' ', '.' , ':'};
+						string[] words = stringToDeconstruct.Substring(skipPhysicalDescription).Split(separators, StringSplitOptions.RemoveEmptyEntries);
+						
+						// compare user's characteristic with the pet's description
+						foreach (string word in words)
+						{
+							if (word == readResult)
+							{
+								foundMatch = true;
+								matchingCats[iMatchingCats] = cat;
+								iMatchingCats++;
+							}
+						}
+					}
+				}
+				if (!foundMatch)
+					Console.WriteLine("No matches.");
+				else
+				{
+					Console.WriteLine();
+					Console.WriteLine("Animals with matching description:");
+					for (int i = 0; i < matchingCats.Length; i++)
+					{
+						if (matchingCats[i] >= 0)
+						{
+							Console.WriteLine($"{ourAnimals[matchingCats[i], numAnimalID]}\t{ourAnimals[matchingCats[i], numAnimalNickname]}\n{ourAnimals[matchingCats[i], numAnimalPhysicalDescription]}\n");
+						}
+					}
+				}
             }
 
 
@@ -625,26 +665,83 @@ do
             break;
 
         case "8":
-            // 7. Display all dogs with a specified characteristic
+            // 8. Display all dogs with a specified characteristic
 
             bool foundDog = false;
-            // find all registered animals, then cats among them
-            foundAnimal = false;
+			int[] dogArray = new int[8] {-1, -1 , -1, -1, -1, -1, -1, -1};
+			int iDogArray = 0;
+			
+			// find all registered animals and cats within them, then make a cat array
             for (int i = 0; i < maxPets; i++)
             {
-                if (ourAnimals[i,numAnimalID].Substring(6, 1) == "d")
-                {
-                    foundDog = true;
-                }
+				if (ourAnimals[i,numAnimalID] != "ID #: ")
+				{
+					if (ourAnimals[i,numAnimalID].Substring(6, 1) == "d")
+					{
+						dogArray[iDogArray] = i;
+						foundDog = true;
+						iDogArray++;
+					}
+				}
             }
+			
             if (!foundDog)
             {
                 Console.WriteLine("No dogs.");
             }
             else
             {
+				bool foundMatch = false;
+				int[] matchingDogs = new int[8] {-1, -1 , -1, -1, -1, -1, -1, -1};
+				int iMatchingDogs = 0;
+				
                 // ask user for characteristic, for now only one, eg. "small"
+                Console.WriteLine("\nEnter one characteristic you are looking for (eg. \"small\"), confirm with Enter:");
+                do
+                {
+                    readResult = Console.ReadLine();
+                } while (readResult == null);
+                
+                // deconstruct cats' description into array of words, then compare them with input
+                readResult = readResult.ToLower();
+                foreach (int dog in dogArray)
+				{
+					if (dog >= 0)
+					{
+						// deconstruct each cat's description into array of words
+						int skipPhysicalDescription = 22;
+						stringToDeconstruct = ourAnimals[dog, numAnimalPhysicalDescription];
+						char[] separators = new char[] { ' ', '.' , ':'};
+						string[] words = stringToDeconstruct.Substring(skipPhysicalDescription).Split(separators, StringSplitOptions.RemoveEmptyEntries);
+						
+						// compare user's characteristic with the pet's description
+						foreach (string word in words)
+						{
+							if (word == readResult)
+							{
+								foundMatch = true;
+								matchingDogs[iMatchingDogs] = dog;
+								iMatchingDogs++;
+							}
+						}
+					}
+				}
+				if (!foundMatch)
+					Console.WriteLine("No matches.");
+				else
+				{
+					Console.WriteLine();
+					Console.WriteLine("Animals with matching description:");
+					for (int i = 0; i < matchingDogs.Length; i++)
+					{
+						if (matchingDogs[i] >= 0)
+						{
+							Console.WriteLine($"{ourAnimals[matchingDogs[i], numAnimalID]}\t{ourAnimals[matchingDogs[i], numAnimalNickname]}\n{ourAnimals[matchingDogs[i], numAnimalPhysicalDescription]}\n");
+						}
+					}
+				}
             }
+
 
             Console.WriteLine("End of the section. Press the Enter key to continue.");
             readResult = Console.ReadLine();
