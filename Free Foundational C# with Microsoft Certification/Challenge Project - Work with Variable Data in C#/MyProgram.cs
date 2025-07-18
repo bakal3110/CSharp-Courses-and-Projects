@@ -1,4 +1,3 @@
-
 using System;
 
 // ourAnimals array will store the following: 
