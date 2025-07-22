@@ -1,4 +1,11 @@
 using System;
+using System.Threading;
+
+// Globalization
+using System.Globalization;
+CultureInfo.CurrentCulture = new CultureInfo("en-US");
+
+const int secondInMiliseconds = 1000;
 
 // ourAnimals array will store the following: 
 string animalSpecies = "";
@@ -137,7 +144,7 @@ do
             while (dogCharacteristic == "")
             {
                 // #2 have user enter multiple comma separated characteristics to search for
-                Console.WriteLine($"\r\nEnter one desired dog characteristic to search for");
+                Console.WriteLine($"\r\nEnter one desired dog characteristics to search for, separate with commas (',')");
                 readResult = Console.ReadLine();
                 if (readResult != null)
                 {
@@ -145,53 +152,73 @@ do
                     Console.WriteLine();
                 }
             }
+            
+            // this splits searches into words, but it saves any spaces before a word, I need to get rid of them, maybe try trimming each word in foreach loop
+            string[] dogSearches = dogCharacteristic.Split(',');
+            Array.Sort(dogSearches);
 
             bool noMatchesDog = true;
             string dogDescription = "";
             
             // #4 update to "rotating" animation with countdown
-            string[] searchingIcons = {".  ", ".. ", "..."};
+            string[] searchingIcons = {"| ", "/ ", "--", "\\ "};
+
+            // I want the loading animation cycle to last a set amound of time
+            int amountOfIconsToAnimate = searchingIcons.Length;
+            int animationCountdown = 3;
+            float animationTimeInSeconds = 1.0f;
+            float threadSleepTime = ( (float)secondInMiliseconds * animationTimeInSeconds ) / amountOfIconsToAnimate;
 
             // loop ourAnimals array to search for matching animals
             for (int i = 0; i < maxPets; i++)
             {
+                bool dogMatched = false; 
 
                 if (ourAnimals[i, 1].Contains("dog"))
                 {
                     
                     // Search combined descriptions and report results
                     dogDescription = ourAnimals[i, 4] + "\r\n" + ourAnimals[i, 5];
-                    
-                    for (int j = 5; j > -1 ; j--)
+                    foreach (string searchWord in dogSearches)
                     {
-                    // #5 update "searching" message to show countdown 
-                        foreach (string icon in searchingIcons)
+                        // counter for loading icon
+                        for (int j = animationCountdown; j > -1 ; j--)
                         {
-                            Console.Write($"\rsearching our dog {ourAnimals[i, 3]} for {dogCharacteristic} {icon}");
-                            Thread.Sleep(250);
+                        // #5 update "searching" message to show countdown 
+                            foreach (string icon in searchingIcons)
+                            {
+                                Console.Write($"\rsearching our dog {ourAnimals[i, 3]} for {searchWord} {icon} {j}");
+                                Thread.Sleep(Convert.ToInt32(threadSleepTime));
+                            }
+                            
+                            Console.Write($"\r{new String(' ', Console.BufferWidth)}");
                         }
                         
-                        Console.Write($"\r{new String(' ', Console.BufferWidth)}");
-                    }
-                    
-                    // #3a iterate submitted characteristic terms and search description for each term
-                    
-                    if (dogDescription.Contains(dogCharacteristic))
-                    {
-                        // #3b update message to reflect term 
-                        // #3c set a flag "this dog" is a match
-                        Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a match!");
+                        // #3a iterate submitted characteristic terms and search description for each term
+                        
+                        if (dogDescription.Contains(searchWord))
+                        {
+                            // #3b update message to reflect term 
+                            // #3c set a flag "this dog" is a match
+                            Console.WriteLine($"\rOur dog {ourAnimals[i, 3].Substring(10)} is a match for {searchWord}!");
 
-                        noMatchesDog = false;
+                            dogMatched = true;
+                            noMatchesDog = false;
+                        }
                     }
-
-                    // #3d if "this dog" is match write match message + dog description
+                        // #3d if "this dog" is match write match message + dog description
+                        if (dogMatched)
+                        {
+                            Console.WriteLine("\n{0} ({1})", ourAnimals[i, 3], ourAnimals[i, 0]);
+                            Console.WriteLine(dogDescription);
+                            Console.WriteLine();
+                        }
                 }
             }
 
             if (noMatchesDog)
             {
-                Console.WriteLine("None of our dogs are a match found for: " + dogCharacteristic);
+                Console.WriteLine("\rNone of our dogs are a match found for: " + dogCharacteristic);
             }
 
             Console.WriteLine("\n\rPress the Enter key to continue");
