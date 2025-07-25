@@ -26,7 +26,7 @@ int food = 0;
 
 InitializeGame();
 
-while (!shouldExit) 
+while (!shouldExit)
 {
     if (TerminalResized())
     {
@@ -35,7 +35,24 @@ while (!shouldExit)
         Thread.Sleep(1000);
         shouldExit = true;
     }
-    else Move(); // to enable optional parameter input 'true'
+    else
+    {
+        Move(); // to enable optional parameter input 'true'
+    }
+}
+
+// Returs true if food was eaten
+bool AteFood(int playerX, int playerY, int foodX, int foodY)
+{
+    if (playerY == foodY)
+    {
+        for (int i = 0; i < player.Length; i++)
+        {
+            if (playerX == foodX)
+                return true;
+        }
+    }
+    return false;
 }
 
 // Returns true if the Terminal was resized 
@@ -45,7 +62,7 @@ bool TerminalResized()
 }
 
 // Displays random food at a random location
-void ShowFood() 
+void ShowFood()
 {
     // Update food to a random index
     food = random.Next(0, foods.Length);
@@ -60,7 +77,7 @@ void ShowFood()
 }
 
 // Changes the player to match the food consumed
-void ChangePlayer() 
+    void ChangePlayer() 
 {
     player = states[food];
     Console.SetCursorPosition(playerX, playerY);
@@ -75,7 +92,7 @@ void FreezePlayer()
 }
 
 // Reads directional input from the Console and moves the player
-void Move(bool optionalParameter = false) 
+void Move(bool optionalParameter = false)
 {
     int lastX = playerX;
     int lastY = playerY;
@@ -106,7 +123,7 @@ void Move(bool optionalParameter = false)
 
     // Clear the characters at the previous position
     Console.SetCursorPosition(lastX, lastY);
-    for (int i = 0; i < player.Length; i++) 
+    for (int i = 0; i < player.Length; i++)
     {
         Console.Write(" ");
     }
@@ -118,6 +135,10 @@ void Move(bool optionalParameter = false)
     // Draw the player at the new location
     Console.SetCursorPosition(playerX, playerY);
     Console.Write(player);
+    if (AteFood(playerX, playerY, foodX, foodY))
+    {
+        ShowFood();
+    }
 }
 
 // Clears the console, displays the food and player
