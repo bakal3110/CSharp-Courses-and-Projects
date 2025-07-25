@@ -25,3 +25,6 @@ The Starter code project for this module includes a Program.cs file with the fol
     - Code to terminate execution if the terminal was resized.
 ```
 Your goal in this challenge is to use the existing features and create the missing features to make the game playable.
+
+Starting code and suggested final code is respectively in `Starter.cs` and `Final.cs`.
+My solution can be found in `MyProgram.cs`.
