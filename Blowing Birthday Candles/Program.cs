@@ -1,43 +1,47 @@
 using System;
 
-// Console.WriteLine("Input: ");
-// string input = Console.ReadLine();
-// Console.WriteLine();
-
 string input = "1321";
+string blownInput = "";
 
-char blownCandle = '0';
+int moveCounter = 1;
 
-bool candlesBlownOut = false;
-
-// make a char array out of input
-char[] candles = new char[input.Length];
-char[] nextThreeCandles = new char[3];
-
-candles = input.ToCharArray();
-
-Console.WriteLine($"Input: \"{input}\"");
-
-// blow candles in a loop until they are blown out
-while (!candlesBlownOut)
+// create blown string of input
+for (int i = 0; i < input.Length; i++)
 {
-    // find next not blown candle
-    int blownCandleLocation = input.IndexOf(blownCandle);
-
-    if (blownCandleLocation == -1)
-    {
-        // get next three candles in a string
-    }
-    else
-    {
-        // keep looking for the candle
-    }
-
-    Console.WriteLine(nextThreeCandles);
+    blownInput += "0";
 }
 
-bool AreCandlesExntinguished(string currentStateOfCandles)
+Console.WriteLine($"Input: \"{input}\"\n");
+
+while(input != blownInput) BlowCandles();
+
+void BlowCandles()
 {
-    
-    return candlesBlownOut;
+	string remainingCandles = input.TrimStart('0');
+
+	// get next three or less candles and blow them
+	string nextCandles = remainingCandles.Substring(0, (remainingCandles.Length > 3) ? 3 : remainingCandles.Length);
+	int[] candlesToBlow = new int[nextCandles.Length];
+	for (int i = 0; i < candlesToBlow.Length; i++)
+	{
+		string digit = nextCandles.Substring(i, 1);
+		candlesToBlow[i] = Int32.Parse(digit);
+		if (candlesToBlow[i] != 0) candlesToBlow[i]--;
+	}
+
+	string blownCandles = "";
+
+	foreach (int candle in candlesToBlow)
+	{
+		blownCandles += Convert.ToString(candle);
+	}
+
+	string trimmedCandles = input.Remove(input.Length - remainingCandles.Length);
+	string leftoverCandles = input.Substring(input.IndexOf(nextCandles)+nextCandles.Length);
+	string foundCandlesToBlow = $"{trimmedCandles}({nextCandles}){leftoverCandles}";
+	string candlesAfterBlowing = $"{trimmedCandles}{blownCandles}{leftoverCandles}";
+
+	Console.WriteLine($"Move {moveCounter++} | \"{foundCandlesToBlow}\" -> \"{candlesAfterBlowing}\"");
+
+	input = candlesAfterBlowing;
 }
