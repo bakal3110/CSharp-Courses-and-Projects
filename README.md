@@ -6,3 +6,4 @@ Repository where I will save my C# learning progress by following different cour
  
 ## Projects / Challenges
 - Blowing Birthday Candles
+- Excluding Numbers
