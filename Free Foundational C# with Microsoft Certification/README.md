@@ -6,4 +6,5 @@ Modules:
 5. Create Methods in C# Console Applications `completed`[Trophy](https://learn.microsoft.com/api/achievements/share/en-us/BartoszKauski-9236/WVQX4X9N?sharingId=F4B5CA882B3D265D)
 6. Debug C# Console Applications `completed`[Trophy](https://learn.microsoft.com/api/achievements/share/en-us/BartoszKauski-9236/DUHS4S3J?sharingId=F4B5CA882B3D265D)
 7. Foundational C# with Microsoft Certification Exam `completed`[Certificate](https://www.freecodecamp.org/certification/fcc-b87fd947-5c44-4674-a100-5b68fcab137c/foundational-c-sharp-with-microsoft)
+
 In this folder I will also save small projects that I will create during this course.
